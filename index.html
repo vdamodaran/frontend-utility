@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to perform an action to find the attribute width from the image tag. This can be used for any tag and any attribute and its value.</p>
+
+<button onclick="myFunction()">Try it with regext</button>
+
+<p id="demo">Step 1. tagString is the varibale to update the the whole tag</p>
+<p id="demo">Step 2. attrToFind is the varibale to find the attribute name</p>
+
+<script>
+function myFunction() {
+  var tagString = '<img   height="152" src="NEW_myurl.jpg"  width="112">';
+  var attrToFind = 'width';
+var regex = new RegExp('[\\s\\r\\t\\n]*([a-z0-9\\-_]+)[\\s\\r\\t\\n]*=[\\s\\r\\t\\n]*([\'"])((?:\\\\\\2|(?!\\2).)*)\\2', 'ig');
+var attributes = {};
+while ((match = regex.exec(tagString))) {
+    if(match[1] == attrToFind){
+    alert(match[1] + " is -> " +match[3]);
+    }
+    
+}
+}
+</script>
+
+</body>
